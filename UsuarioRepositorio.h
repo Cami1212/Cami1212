@@ -1,21 +1,21 @@
-#define Usuario_h
+#include <string>
+#ifndef UsuarioRepositorio_h
+#define UsuarioRepositorio_h
 using namespace std;
+#include "Usuario.h"
+#include "ListaLigada.h"
+#include <fstream>
 
-class Usuario
-{
-  private:
-    string username;
-    string password;
-    
-    
-  public:
-    Usuario();
-    Usuario(string u, string p);
-    ~Usuario();
-    string getUsername();
-    void setUsername(string u);
-    string getPassword();
-    void setPassword(string p);
-    string toString();
-};
+class UsuarioRepositorio{
 
+public:
+  UsuarioRepositorio();
+  ~UsuarioRepositorio();
+  void insertarUsuario(Usuario usuario);
+  Usuario obtenerUsuarioPorUsernameYPassword(string username, string password);
+  bool eliminarUsuario(Usuario u);
+  ListaLigada obtenerUsuarios();
+  void escribirEnArchivo();
+  ListaLigada getListaDeUsuarios();
+
+  
